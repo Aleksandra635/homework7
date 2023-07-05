@@ -11,7 +11,7 @@ int colums = Prompt("Введите количество столбцов: ");
 int minValue = Prompt("Введите число для минимального диапазона значений: ");
 int maxValue = Prompt("Введите число для максимального диапазона значений: ");
 double [,] array = GetArray(rows, colums, minValue, maxValue);
-
+PrintArray(array);
 
 
 
@@ -31,10 +31,22 @@ double[,] GetArray (int m, int n, int min, int max)
         for (int j = 0; j < n; j++)
         {
            result[i, j] = Math.Round(rnd.NextDouble() * (maxValue - minValue) + minValue, 1);  // генерируем случайное число в диапазоне [minValue, maxValue] и округляем до двух знаков после запятой
-           Console.Write($"{result[i,j]} ");
+        //    Console.Write($"{result[i,j]} ");
         }
-        Console.WriteLine();
-        Console.WriteLine();
+        // Console.WriteLine();
+        // Console.WriteLine();
     }
     return result;
+}
+
+void PrintArray(double[,]arr)
+{
+    for(int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+               Console.Write(arr[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
 }
